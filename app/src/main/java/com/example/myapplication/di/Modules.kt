@@ -1,0 +1,14 @@
+package com.example.myapplication.di
+
+import com.example.myapplication.data.network.AuthRepository
+import com.example.myapplication.data.network.AuthRepositoryImpl
+import com.example.myapplication.data.network.AuthService
+import com.example.myapplication.viewmodel.AuthViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.module
+
+val appModule = module {
+    single { AuthService() }
+    single<AuthRepository> { AuthRepositoryImpl(get()) }
+    viewModel { AuthViewModel(get()) }
+}
