@@ -1,6 +1,5 @@
 package com.example.myapplication.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.network.AuthRepository
@@ -21,7 +20,6 @@ class AuthViewModel(
 
     fun login() {
         viewModelScope.launch {
-            Log.d("SMEDIC", "login: ")
             authRepository.login()
             delay(2000)
             _authState.update { it.copy(success = true) }

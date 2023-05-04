@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -25,7 +24,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.myapplication.viewmodel.AuthViewModel
 import org.koin.androidx.compose.koinViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginContent(
     onClick: () -> Unit,
@@ -35,13 +33,13 @@ fun LoginContent(
     viewModel: AuthViewModel = koinViewModel()
 ) {
     val content by viewModel.authState.collectAsStateWithLifecycle()
+    val TAG = "LoginContent"
 
     LaunchedEffect(key1 = content) {
         if (content.success) {
-            Log.d("SMEDIC", "LoginContent: STATE TRUE: ${content.success}")
             onClick()
         } else {
-            Log.d("SMEDIC", "LoginContent: STATE FALSE: ${content.success}")
+            Log.e(TAG, "LoginContent: Login failed!")
         }
     }
 
@@ -64,12 +62,6 @@ fun LoginContent(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(
-                when (content.success) {
-                    false -> "Not yet logged in"
-                    true -> "Logged in"
-                }
-            )
             Text(
                 modifier = Modifier.clickable {
                     viewModel.login()

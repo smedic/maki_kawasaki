@@ -1,6 +1,5 @@
 package com.example.myapplication.screens
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -58,13 +57,10 @@ fun DesignSystemScreen(onBackClicked: () -> Unit) {
                 MainButton(
                     title = "Test",
                     modifier = Modifier.padding(horizontal = 30.dp),
-                    onClick = {
-                        Log.d("SMEDIC", "LoginContent: BLA BLA")
-                    },
+                    onClick = {},
                 )
                 Box(modifier = Modifier.padding(horizontal = 16.dp)) {
                     TogiCountryCodePicker(
-                        //color = Color.LightGray,
                         modifier = Modifier.background(
                             color = Color.LightGray,
                             shape = RoundedCornerShape(8.dp)
@@ -72,7 +68,7 @@ fun DesignSystemScreen(onBackClicked: () -> Unit) {
                         unfocusedBorderColor = Color.LightGray,
                         focusedBorderColor = Color.Blue,
                         text = "123456",
-                        onValueChange = { Log.d("SMEDIC", "LoginContent: ${it}") },
+                        onValueChange = {},
                         bottomStyle = false, //  if true the text-field is below the country code selector at the top.
                         shape = RoundedCornerShape(8.dp)
                     )
@@ -80,9 +76,7 @@ fun DesignSystemScreen(onBackClicked: () -> Unit) {
                 MaterialCountryCodePicker(
                     modifier = Modifier.padding(horizontal = 30.dp),
                     text = phoneNumber.value,
-                    pickedCountry = {
-                        Log.d("SMEDIC", "LoginContent: ${it.countryCode}")
-                    },
+                    pickedCountry = {},
                     onValueChange = { phoneNumber.value = it },
                     defaultCountry = CountryData(cCodes = "+381"),
                     colors = ccpDefaultColors()
