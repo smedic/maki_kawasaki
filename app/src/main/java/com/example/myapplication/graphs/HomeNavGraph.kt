@@ -1,28 +1,26 @@
 package com.example.myapplication.graphs
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.example.myapplication.BottomBarScreen
+import com.example.myapplication.screens.HomeScreen
 import com.example.myapplication.screens.ScreenContent
 
 @Composable
-fun HomeNavGraph(navController: NavHostController) {
+fun HomeNavGraph(modifier: Modifier = Modifier, navController: NavHostController) {
     NavHost(
+        modifier = modifier,
         navController = navController,
         route = Graph.HOME,
         startDestination = BottomBarScreen.Home.route
     ) {
         composable(route = BottomBarScreen.Home.route) {
-            ScreenContent(
-                name = BottomBarScreen.Home.route,
-                onClick = {
-                    navController.navigate(Graph.DETAILS)
-                }
-            )
+            HomeScreen()
         }
         composable(route = BottomBarScreen.Profile.route) {
             ScreenContent(
