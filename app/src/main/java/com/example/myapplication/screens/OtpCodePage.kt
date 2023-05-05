@@ -30,10 +30,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.R
-import com.example.myapplication.composables.OtpTextField
 import com.example.myapplication.ui.theme.Blue500
 import com.example.myapplication.viewmodel.AuthViewModel
 import com.example.myapplication.views.MainButton
+import com.example.myapplication.views.OtpTextField
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException

@@ -23,7 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.myapplication.composables.OtpTextField
+import com.example.myapplication.views.OtpTextField
 import com.example.myapplication.views.MainButton
 import com.simon.xmaterialccp.component.MaterialCountryCodePicker
 import com.simon.xmaterialccp.data.CountryData
