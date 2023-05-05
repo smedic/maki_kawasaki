@@ -1,5 +1,5 @@
 package com.example.myapplication.data.network
 
 interface AuthRepository {
-    suspend fun login(): Boolean
+    suspend fun login(): Result<Boolean>
 }
