@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1018656984890",
+    "project_id": "solevodev",
+    "storage_bucket": "solevodev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018656984890:android:36186d9076ccac6b7bca03",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1018656984890-4kulejifp3749jbf4vou4nh5gujutgro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD08MzX8jI-75LPw3vtz94mr00G7zPLiAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1018656984890-4kulejifp3749jbf4vou4nh5gujutgro.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
