@@ -23,7 +23,7 @@ class HomeViewModel : ViewModel() {
         viewModelScope.launch {
             _state.update { it.copy(uiState = UiState.Loading) }
             delay(2000)
-            _state.update { it.copy(uiState = UiState.Success(HomeContent("DONEEE!"))) }
+            _state.update { it.copy(uiState = UiState.Success(HomeContent("Logged in successfully!"))) }
         }
     }
 
