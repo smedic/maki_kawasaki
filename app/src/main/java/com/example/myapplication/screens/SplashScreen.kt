@@ -1,10 +1,8 @@
 package com.example.myapplication.screens
 
-import android.window.SplashScreen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
@@ -45,7 +43,7 @@ fun SplashScreen(
         Spacer(modifier = Modifier.size(16.dp))
         Text(
             text = stringResource(id = R.string.splash_screen_title),
-            style = MaterialTheme.typography.headlineMedium,
+            style = MaterialTheme.typography.headlineLarge,
             color = Color.Black
         )
     }
