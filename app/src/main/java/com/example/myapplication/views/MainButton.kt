@@ -1,5 +1,6 @@
 package com.example.myapplication.views
 
+import android.content.res.Resources.Theme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -27,7 +28,7 @@ fun MainButton(
     Button(
         onClick = onClick,
         shape = RoundedCornerShape(size = 30.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = Color.Blue),
+        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
         modifier = modifier
             .height(56.dp)
             .fillMaxWidth(),
@@ -35,7 +36,7 @@ fun MainButton(
         Text(
             title,
             color = Color.White,
-            fontSize = MaterialTheme.typography.titleMedium.fontSize,
+            fontSize = MaterialTheme.typography.bodyMedium.fontSize,
             fontWeight = FontWeight.SemiBold
         )
         Spacer(modifier = Modifier.padding(horizontal = 4.dp))
