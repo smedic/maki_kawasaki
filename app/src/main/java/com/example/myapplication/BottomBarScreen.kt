@@ -1,31 +1,19 @@
 package com.example.myapplication
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.ui.graphics.vector.ImageVector
-
 sealed class BottomBarScreen(
     val route: String,
     val title: String,
-    val icon: ImageVector
+    val icon: Int,
 ) {
-    object Home : BottomBarScreen(
-        route = "HOME",
-        title = "HOME",
-        icon = Icons.Default.Home
+    object Orders : BottomBarScreen(
+        route = "ORDERS",
+        title = "Orders",
+        icon = R.drawable.orders_icon
     )
 
-    object Profile : BottomBarScreen(
-        route = "PROFILE",
-        title = "PROFILE",
-        icon = Icons.Default.Person
-    )
-
-    object Settings : BottomBarScreen(
-        route = "SETTINGS",
-        title = "SETTINGS",
-        icon = Icons.Default.Settings
+    object Statements : BottomBarScreen(
+        route = "STATEMENTS",
+        title = "Statements",
+        icon = R.drawable.statements_icon,
     )
 }

@@ -21,9 +21,9 @@ import com.example.myapplication.views.compose.UiStateContent
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun HomeScreen(
+fun OrdersPage(
     onDesignSystemClick: () -> Unit,
-    viewModel: HomeViewModel = koinViewModel()
+    viewModel: HomeViewModel = koinViewModel(),
 ) {
 
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -37,7 +37,7 @@ fun HomeScreen(
         },
         topBar = {
             TopAppBar(
-                title = { Text(text = "Home Page") },
+                title = { Text(text = "Orders") },
                 actions = {
                     IconButton(onClick = { onDesignSystemClick() }) {
                         Icon(imageVector = Icons.Filled.Settings, contentDescription = null)
@@ -50,13 +50,13 @@ fun HomeScreen(
             paddingValues = paddingValues,
             uiState = state.uiState,
             retryCallback = { viewModel.fetchData() }) { content ->
-            HomePage(content)
+            OrdersContent(content)
         }
     }
 }
 
 @Composable
-fun HomePage(content: HomeContent) {
+fun OrdersContent(content: HomeContent) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxSize()

@@ -2,14 +2,13 @@ package com.example.myapplication.graphs
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.navigation
 import com.example.myapplication.BottomBarScreen
-import com.example.myapplication.screens.HomeScreen
-import com.example.myapplication.screens.ScreenContent
+import com.example.myapplication.screens.DesignSystemScreen
+import com.example.myapplication.screens.OrdersPage
+import com.example.myapplication.screens.StatementsPage
 
 @Composable
 fun HomeNavGraph(modifier: Modifier = Modifier, navController: NavHostController) {
@@ -17,57 +16,56 @@ fun HomeNavGraph(modifier: Modifier = Modifier, navController: NavHostController
         modifier = modifier,
         navController = navController,
         route = Graph.HOME,
-        startDestination = BottomBarScreen.Home.route
+        startDestination = BottomBarScreen.Orders.route
     ) {
-        composable(route = BottomBarScreen.Home.route) {
-            HomeScreen(
+        composable(route = BottomBarScreen.Orders.route) {
+            OrdersPage(
                 onDesignSystemClick = {
-                    navController.navigate(HomeScreen.DesignSystem.route)
+                    navController.navigate(OrdersScreen.DesignSystem.route)
                 }
             )
         }
-        composable(route = BottomBarScreen.Profile.route) {
-            ScreenContent(
-                name = BottomBarScreen.Profile.route,
+        composable(route = OrdersScreen.DesignSystem.route) {
+            DesignSystemScreen(onBackClicked = {
+                navController.popBackStack()
+            })
+        }
+        composable(route = BottomBarScreen.Statements.route) {
+            StatementsPage(
+                name = BottomBarScreen.Statements.route,
                 onClick = { }
             )
         }
-        composable(route = BottomBarScreen.Settings.route) {
-            ScreenContent(
-                name = BottomBarScreen.Settings.route,
-                onClick = { }
-            )
-        }
-        detailsNavGraph(navController = navController)
+//        detailsNavGraph(navController = navController)
     }
 }
 
-fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
-    navigation(
-        route = Graph.DETAILS,
-        startDestination = DetailsScreen.Information.route
-    ) {
-        composable(route = DetailsScreen.Information.route) {
-            ScreenContent(name = DetailsScreen.Information.route) {
-                navController.navigate(DetailsScreen.Overview.route)
-            }
-        }
-        composable(route = DetailsScreen.Overview.route) {
-            ScreenContent(name = DetailsScreen.Overview.route) {
-                navController.popBackStack(
-                    route = DetailsScreen.Information.route,
-                    inclusive = false
-                )
-            }
-        }
-    }
+//fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
+//    navigation(
+//        route = Graph.STATEMENTS,
+//        startDestination = StatementsScreen.Information.route
+//    ) {
+//        composable(route = StatementsScreen.Information.route) {
+//            ScreenContent(name = StatementsScreen.Information.route) {
+//                navController.navigate(StatementsScreen.Overview.route)
+//            }
+//        }
+//        composable(route = StatementsScreen.Overview.route) {
+//            ScreenContent(name = StatementsScreen.Overview.route) {
+//                navController.popBackStack(
+//                    route = StatementsScreen.Information.route,
+//                    inclusive = false
+//                )
+//            }
+//        }
+//    }
+//}
+
+sealed class OrdersScreen(val route: String) {
+    object DesignSystem : OrdersScreen(route = "DESIGN_SYSTEM")
 }
 
-sealed class HomeScreen(val route: String) {
-    object DesignSystem : HomeScreen(route = "DESIGN_SYSTEM")
-}
-
-sealed class DetailsScreen(val route: String) {
-    object Information : DetailsScreen(route = "INFORMATION")
-    object Overview : DetailsScreen(route = "OVERVIEW")
+sealed class StatementsScreen(val route: String) {
+    object Information : StatementsScreen(route = "INFORMATION")
+    object Overview : StatementsScreen(route = "OVERVIEW")
 }

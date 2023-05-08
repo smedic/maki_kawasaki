@@ -100,7 +100,7 @@ fun OtpCodePage(
                         context as Activity,
                         onSuccess = { onCodeConfirmed() },
                         onFailure = {
-                            Log.d("SMEDIC", "OtpCodePage: failure: $it")
+                            Log.d("OtpCodePage", "OtpCodePage: failure: $it")
                         }
                     )
                 }
