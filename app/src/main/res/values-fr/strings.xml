@@ -2,4 +2,5 @@
     <string name="app_name">My Application</string>
     <string name="there_was_a_problem">There was a problem — please try again.</string>
     <string name="splash_screen_title">Mon Solevo</string>
+    <string name="sign_in">S\'inscrire</string>
 </resources>
