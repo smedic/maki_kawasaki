@@ -23,11 +23,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.myapplication.views.OtpTextField
 import com.example.myapplication.views.MainButton
-import com.simon.xmaterialccp.component.MaterialCountryCodePicker
-import com.simon.xmaterialccp.data.CountryData
-import com.simon.xmaterialccp.data.ccpDefaultColors
+import com.example.myapplication.views.OtpTextField
 import com.togitech.ccp.component.TogiCountryCodePicker
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -50,11 +47,7 @@ fun DesignSystemScreen(onBackClicked: () -> Unit) {
                 .fillMaxSize()
                 .padding(paddingValues),
         ) {
-
-            val phoneNumber = rememberSaveable { mutableStateOf("") }
-            val fullPhoneNumber = rememberSaveable { mutableStateOf("") }
-            val onlyPhoneNumber = rememberSaveable { mutableStateOf("") }
-            var otpValue = rememberSaveable { mutableStateOf("") }
+            val otpValue = rememberSaveable { mutableStateOf("") }
 
             Column {
                 OtpTextField(
@@ -75,7 +68,7 @@ fun DesignSystemScreen(onBackClicked: () -> Unit) {
                     onClick = {},
                 )
                 Spacer(modifier = Modifier.height(10.dp))
-                Box(modifier = Modifier.padding(horizontal = 16.dp)) {
+                Box(modifier = Modifier.padding(horizontal = 4.dp)) {
                     TogiCountryCodePicker(
                         modifier = Modifier.background(
                             color = Color.LightGray,
@@ -89,15 +82,6 @@ fun DesignSystemScreen(onBackClicked: () -> Unit) {
                         shape = RoundedCornerShape(8.dp)
                     )
                 }
-                Spacer(modifier = Modifier.height(10.dp))
-                MaterialCountryCodePicker(
-                    modifier = Modifier.padding(horizontal = 30.dp),
-                    text = phoneNumber.value,
-                    pickedCountry = {},
-                    onValueChange = { phoneNumber.value = it },
-                    defaultCountry = CountryData(cCodes = "+381"),
-                    colors = ccpDefaultColors()
-                )
             }
         }
     }
