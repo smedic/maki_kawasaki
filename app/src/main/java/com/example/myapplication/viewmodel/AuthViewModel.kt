@@ -4,15 +4,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.network.AuthRepository
 import com.example.myapplication.views.compose.FetchingError
+import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
+
 class AuthViewModel(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
+
+    lateinit var phoneNumber: String
+    lateinit var verificationId: String
+    lateinit var forceResendingToken: PhoneAuthProvider.ForceResendingToken
 
     private val _authState = MutableStateFlow(LoginData())
     val authState = _authState.asStateFlow()
@@ -42,5 +48,5 @@ class AuthViewModel(
 data class LoginData(
     val snackBarError: FetchingError? = null,
     val showLoading: Boolean = false,
-    val navigateToNextScreen: Boolean = false
+    val navigateToNextScreen: Boolean = false,
 )

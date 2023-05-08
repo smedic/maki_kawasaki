@@ -20,7 +20,11 @@ fun HomeNavGraph(modifier: Modifier = Modifier, navController: NavHostController
         startDestination = BottomBarScreen.Home.route
     ) {
         composable(route = BottomBarScreen.Home.route) {
-            HomeScreen()
+            HomeScreen(
+                onDesignSystemClick = {
+                    navController.navigate(HomeScreen.DesignSystem.route)
+                }
+            )
         }
         composable(route = BottomBarScreen.Profile.route) {
             ScreenContent(
@@ -57,6 +61,10 @@ fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
             }
         }
     }
+}
+
+sealed class HomeScreen(val route: String) {
+    object DesignSystem : HomeScreen(route = "DESIGN_SYSTEM")
 }
 
 sealed class DetailsScreen(val route: String) {
