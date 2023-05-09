@@ -1,33 +1,70 @@
 {
   "project_info": {
-    "project_number": "1018656984890",
-    "project_id": "solevodev",
-    "storage_bucket": "solevodev.appspot.com"
+    "project_number": "1015131760130",
+    "project_id": "solevofirebase",
+    "storage_bucket": "solevofirebase.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1018656984890:android:36186d9076ccac6b7bca03",
+        "mobilesdk_app_id": "1:1015131760130:android:bcb025f207ae49c2bc691b",
         "android_client_info": {
           "package_name": "com.example.myapplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1018656984890-4kulejifp3749jbf4vou4nh5gujutgro.apps.googleusercontent.com",
+          "client_id": "1015131760130-1civikadf3ub724eq0vi5vb5sn9ki1os.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD08MzX8jI-75LPw3vtz94mr00G7zPLiAs"
+          "current_key": "AIzaSyCIs3oRc7wVJUgKEzlJIc1ulkHWWxVkBU4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1018656984890-4kulejifp3749jbf4vou4nh5gujutgro.apps.googleusercontent.com",
+              "client_id": "1015131760130-1civikadf3ub724eq0vi5vb5sn9ki1os.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015131760130:android:0006c886cdf00cdebc691b",
+        "android_client_info": {
+          "package_name": "com.solevo.dist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015131760130-sl7v6dvgmjv7kv87p6pbmp53u39nh8ui.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.solevo.dist",
+            "certificate_hash": "aa2e2be13b6bb1e9c8276c9ae9357f16485c8f87"
+          }
+        },
+        {
+          "client_id": "1015131760130-1civikadf3ub724eq0vi5vb5sn9ki1os.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIs3oRc7wVJUgKEzlJIc1ulkHWWxVkBU4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1015131760130-1civikadf3ub724eq0vi5vb5sn9ki1os.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
