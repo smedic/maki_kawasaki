@@ -3,4 +3,6 @@
     <string name="there_was_a_problem">There was a problem — please try again.</string>
     <string name="splash_screen_title">My Solevo</string>
     <string name="sign_in">Sign In</string>
+    <string name="create_pin">Create PIN</string>
+    <string name="finish">Finish</string>
 </resources>

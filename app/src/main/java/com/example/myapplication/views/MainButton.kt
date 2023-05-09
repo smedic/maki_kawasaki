@@ -17,18 +17,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.R
+import com.example.myapplication.screens.CreatePinScreen
+import com.example.myapplication.ui.theme.MyApplicationTheme
 
 @Composable
 fun MainButton(
-    title: String, onClick: () -> Unit,
+    title: String,
+    enabled: Boolean = true,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Button(
         onClick = onClick,
+        enabled = enabled,
         shape = RoundedCornerShape(size = 30.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = MaterialTheme.colorScheme.primary
+        ),
         modifier = modifier
             .height(56.dp)
             .fillMaxWidth(),
@@ -46,5 +54,13 @@ fun MainButton(
             modifier = Modifier
                 .size(22.dp)
         )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MainButtonPreview() {
+    MyApplicationTheme() {
+        MainButton(title = "Test", onClick = { })
     }
 }
