@@ -13,7 +13,7 @@ import org.koin.dsl.module
 val appModule = module {
     single { AuthService() }
     single<AuthRepository> { AuthRepositoryImpl(get()) }
-    single { AuthViewModel(get()) }
+    single { AuthViewModel(get(), get()) }
     single<SharedPrefsRepository> { SharedPrefsRepository(get()) }
     viewModel { HomeViewModel() }
     viewModel { SplashViewModel(get()) }

@@ -3,7 +3,10 @@ package com.example.myapplication.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.network.AuthRepository
+import com.example.myapplication.data.network.SharedPrefsRepository
+import com.example.myapplication.extensions.toSha1
 import com.example.myapplication.views.compose.FetchingError
+import com.example.myapplication.views.compose.UiState
 import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,6 +17,7 @@ import kotlinx.coroutines.launch
 
 class AuthViewModel(
     private val authRepository: AuthRepository,
+    private val sharedPrefRepository: SharedPrefsRepository
 ) : ViewModel() {
 
     lateinit var phoneNumber: String
@@ -22,6 +26,9 @@ class AuthViewModel(
 
     private val _authState = MutableStateFlow(LoginData())
     val authState = _authState.asStateFlow()
+
+    private val _pinState = MutableStateFlow<UiState<String>?>(null)
+    val pinState = _pinState.asStateFlow()
 
     fun login() {
         viewModelScope.launch {
@@ -42,6 +49,15 @@ class AuthViewModel(
 
     fun snackBarErrorShown() {
         _authState.update { it.copy(snackBarError = null) }
+    }
+
+    fun createPINCode(pin: String) {
+        _pinState.value = UiState.Loading
+        viewModelScope.launch {
+            val sha1PinCode = pin.toSha1()
+            sharedPrefRepository.saveUserPINCode(sha1PinCode)
+            _pinState.value = UiState.Success(sha1PinCode)
+        }
     }
 }
 

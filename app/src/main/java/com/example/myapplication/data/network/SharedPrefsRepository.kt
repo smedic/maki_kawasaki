@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -18,6 +19,7 @@ class SharedPrefsRepository(context: Context) {
 
     private object PreferencesKey {
         val isUserLoggedIn = booleanPreferencesKey(name = "is_user_logged_in")
+        val userPin = stringPreferencesKey(name = "user_pin")
     }
 
     private val dataStore = context.dataStore
@@ -42,4 +44,26 @@ class SharedPrefsRepository(context: Context) {
                 isLoggedInState
             }
     }
+
+    suspend fun saveUserPINCode(pin: String) {
+        dataStore.edit { preferences ->
+            preferences[PreferencesKey.userPin] = pin
+        }
+    }
+
+    fun getUserPinCode(): Flow<String> {
+        return dataStore.data
+            .catch { exception ->
+                if (exception is IOException) {
+                    emit(emptyPreferences())
+                } else {
+                    throw exception
+                }
+            }
+            .map { preferences ->
+                val userPin = preferences[PreferencesKey.userPin] ?: ""
+                userPin
+            }
+    }
+
 }
